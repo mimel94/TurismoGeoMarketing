@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "474548990494",
+    "firebase_url": "https://turismogeomarketing.firebaseio.com",
+    "project_id": "turismogeomarketing",
+    "storage_bucket": "turismogeomarketing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474548990494:android:8384cdfc2fbdf0d9",
+        "android_client_info": {
+          "package_name": "com.mimel.turismogeomarketing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474548990494-9h4gfjtlsiocs4v62s0no7q2oh7d2reh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mimel.turismogeomarketing",
+            "certificate_hash": "1fe007f9ddbd1743d3f9a71efccadb71334ed355"
+          }
+        },
+        {
+          "client_id": "474548990494-o2d8kih96s61iorjmidg02gi97j5hn1p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmEfL-jYuw8xiZoIw-o6BvVa3nWRcS75o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474548990494-o2d8kih96s61iorjmidg02gi97j5hn1p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
