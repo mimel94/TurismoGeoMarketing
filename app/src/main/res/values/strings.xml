@@ -29,6 +29,8 @@
 
     <string name="action_settings">Settings</string>
     <string name="profile">Mi Perfil</string>
+    <string name="ciudad_origen">ciudad - origen</string>
+    <string name="description">Breve descripción.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
