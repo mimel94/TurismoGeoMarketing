@@ -22,6 +22,9 @@ package com.mimel.turismogeomarketing;
         import com.google.firebase.auth.FacebookAuthProvider;
         import com.google.firebase.auth.FirebaseAuth;
         import com.google.firebase.auth.FirebaseUser;
+        import com.google.firebase.database.DatabaseReference;
+        import com.google.firebase.database.FirebaseDatabase;
+        import com.mimel.turismogeomarketing.modelos.UserData;
 
         import java.util.Arrays;
 
@@ -30,8 +33,10 @@ public class LoginActivity extends AppCompatActivity {
     private LoginButton loginButton;
     private CallbackManager callbackManager;
 
-    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference refUserData = database.getReference(FirebaseReferences.USER);
 
     private ProgressBar progressBar;
 
@@ -65,7 +70,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -87,7 +91,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (!task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), R.string.firebase_error_login, Toast.LENGTH_LONG).show();
-                }
+                }else{
+                    UserData user = new UserData("","","","");
+                    refUserData.child(firebaseAuth.getCurrentUser().getUid()).setValue(user);
+                }//Registro de los datos
                 progressBar.setVisibility(View.GONE);
                 loginButton.setVisibility(View.VISIBLE);
             }

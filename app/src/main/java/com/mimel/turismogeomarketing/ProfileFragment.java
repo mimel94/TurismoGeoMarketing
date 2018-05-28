@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ImageButton;
 
 
 import com.bumptech.glide.Glide;
@@ -34,6 +35,7 @@ public class ProfileFragment extends Fragment {
     private Button closeSession;
     private ImageView profilePhoto;
     private TextView uriFoto;
+    private ImageButton editButon;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -51,6 +53,13 @@ public class ProfileFragment extends Fragment {
         //uidTextView = (TextView) rootview.findViewById(R.id.uidTextView);
         //closeSession = (Button) rootview.findViewById(R.id.close_session_btn);
         profilePhoto = (ImageView) rootview.findViewById(R.id.profile_img);
+        editButon = (ImageButton) rootview.findViewById(R.id.editBtn);
+        editButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), EditProfile.class));
+            }
+        });
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
