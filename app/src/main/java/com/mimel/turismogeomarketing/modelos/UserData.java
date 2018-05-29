@@ -1,6 +1,7 @@
 package com.mimel.turismogeomarketing.modelos;
 
 public class UserData {
+    String nombre;
     String city;
     String description;
     String profilePhotoUrl;
@@ -10,7 +11,19 @@ public class UserData {
 
     }
 
-    public UserData(String city, String description, String profilePhotoUrl, String dateProfile) {
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+
+
+    public UserData(String nombre, String city, String description, String profilePhotoUrl, String dateProfile) {
+        this.nombre = nombre;
+
         this.city = city;
         this.description = description;
         this.profilePhotoUrl = profilePhotoUrl;

@@ -92,8 +92,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (!task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), R.string.firebase_error_login, Toast.LENGTH_LONG).show();
                 }else{
-                    UserData user = new UserData("","","","");
+                    UserData user = new UserData(firebaseAuth.getCurrentUser().getDisplayName().toString(),"","","","");
+
                     refUserData.child(firebaseAuth.getCurrentUser().getUid()).setValue(user);
+
+
                 }//Registro de los datos
                 progressBar.setVisibility(View.GONE);
                 loginButton.setVisibility(View.VISIBLE);
