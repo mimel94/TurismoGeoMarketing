@@ -16,25 +16,37 @@ import android.widget.ImageButton;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
 import com.facebook.login.LoginManager;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.mimel.turismogeomarketing.modelos.UserData;
+import com.google.firebase.storage.StorageReference;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ProfileFragment extends Fragment {
+    FirebaseDatabase database =FirebaseDatabase.getInstance();
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    //private FirebaseAuth.AuthStateListener mAuthListener;
+    DatabaseReference refUser =database.getReference(FirebaseReferences.USER);
+    UserData user = new UserData();
 
-    private TextView nameTextView;
-    private TextView emailTextView;
-    private TextView uidTextView;
-    private Button closeSession;
+    private StorageReference myStorage;
+    StorageReference httpsReference;
+
+    private TextView nameTxt;
+    private TextView cityTxt;
+    private TextView descriptionTxt;
     private ImageView profilePhoto;
-    private TextView uriFoto;
     private ImageButton editButon;
 
     public ProfileFragment() {
@@ -48,10 +60,9 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         final View rootview = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        nameTextView = (TextView) rootview.findViewById(R.id.nameTextView);
-        //emailTextView = (TextView) rootview.findViewById(R.id.emailTextView);
-        //uidTextView = (TextView) rootview.findViewById(R.id.uidTextView);
-        //closeSession = (Button) rootview.findViewById(R.id.close_session_btn);
+        nameTxt = (TextView) rootview.findViewById(R.id.nameTextView);
+        cityTxt = (TextView) rootview.findViewById(R.id.city_txt);
+        descriptionTxt = (TextView) rootview.findViewById(R.id.description_txt);
         profilePhoto = (ImageView) rootview.findViewById(R.id.profile_img);
         editButon = (ImageButton) rootview.findViewById(R.id.editBtn);
         editButon.setOnClickListener(new View.OnClickListener() {
@@ -62,26 +73,37 @@ public class ProfileFragment extends Fragment {
         });
 
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user != null){
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            final Uri photoUrl = user.getPhotoUrl();
-            Glide.with(getActivity())
-                    .load(photoUrl)
-                    .centerCrop()
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(profilePhoto);
+        refUser.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                user = dataSnapshot.getValue(UserData.class);
+                nameTxt.setText(mAuth.getCurrentUser().getDisplayName());
 
-            String uid = user.getUid();
+                if(user.getCity().isEmpty()){
+                    cityTxt.setText("Complete su ciudad");
+                }else {
+                    cityTxt.setText(user.getCity());
+                }
+                if(user.getDescription().isEmpty()){
+                    descriptionTxt.setText("Añada una descripcion");
+                }else {
+                    descriptionTxt.setText(user.getDescription());
+                }
+                if(!(user.getProfilePhotoUrl().isEmpty())){
+                    httpsReference = FirebaseStorage.getInstance().getReferenceFromUrl(user.getProfilePhotoUrl());
+                    Glide.with(getActivity())
+                            .using(new FirebaseImageLoader())
+                            .load(httpsReference)
+                            .into(profilePhoto);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.print("Error no hay datos en la base de datos! :P"+databaseError.toString());
+            }
+        });
+        mAuth.getCurrentUser();
 
-
-            nameTextView.setText(name);
-            //emailTextView.setText(email);
-            //uidTextView.setText(uid);
-        } else {
-            goLoginScreen();
-        }
 
       /*  closeSession.setOnClickListener(new View.OnClickListener() {
             @Override
