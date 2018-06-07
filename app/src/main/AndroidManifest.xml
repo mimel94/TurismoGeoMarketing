@@ -2,12 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mimel.turismogeomarketing">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+
 
     <application
         android:name=".GeoMarketingApp"
@@ -20,6 +26,13 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".LoginActivity"
@@ -34,10 +47,9 @@
             android:name=".PrincipalUser"
             android:label="@string/title_activity_principal_user"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".EditProfile"></activity>
-
-
-
+        <activity android:name=".EditProfile" />
+        <activity android:name=".PublishSite" />
+        <activity android:name=".MapSite"></activity>
     </application>
 
 </manifest>

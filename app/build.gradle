@@ -37,9 +37,11 @@ dependencies {
     //implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.firebaseui:firebase-ui-storage:0.6.0'
+
     //implementation 'com.github.bumptech.glide:glide:3.8.0'
     // Add this line
     //compile 'com.google.firebase:firebase-core:11.8.0'
+    implementation 'com.google.android.gms:play-services-maps:11.0.4'
 }
 // Add to the bottom of the file
 apply plugin: 'com.google.gms.google-services'

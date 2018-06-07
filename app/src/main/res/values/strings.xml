@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TurismoGeoMarketing</string>
 
+
     <string name="facebook_app_id">233152057244871</string>
     <string name="fb_login_protocol_scheme">fb233152057244871</string>
     <string name="title_activity_login">Iniciar sesión</string>
