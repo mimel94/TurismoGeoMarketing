@@ -1,6 +1,8 @@
 package com.mimel.turismogeomarketing.modelos;
 
-public class Places {
+import java.io.Serializable;
+
+public class Places implements Serializable{
     String name;
     String description;
     String profilePhotoUrl;
@@ -9,7 +11,7 @@ public class Places {
     String latitud;
     String city;
     String type;
-    int score;
+    double score;
 
     public Places() {
 
@@ -24,7 +26,7 @@ public class Places {
         this.latitud = latitud;
         this.city = city;
         this.type = type;
-        this.score = 0;
+
     }
 
     public String getPaymentMethod() {
@@ -43,11 +45,11 @@ public class Places {
         this.latitud = latitud;
     }
 
-    public int getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(double score) {
         this.score = score;
     }
 

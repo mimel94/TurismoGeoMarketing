@@ -101,6 +101,8 @@ public class PrincipalUser extends AppCompatActivity
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         } else if (id == R.id.near_places) {
+            Intent intent = new Intent(this, PublishSite.class);
+            startActivity(intent);
 
         } else if (id == R.id.tipical_food) {
 

@@ -11,7 +11,7 @@
         <item
             android:id="@+id/near_places"
             android:icon="@drawable/ic_map_black"
-            android:title="Lugares Cercanos" />
+            android:title="Lugares" />
         <item
             android:id="@+id/tipical_food"
             android:icon="@drawable/ic_restaurant"
