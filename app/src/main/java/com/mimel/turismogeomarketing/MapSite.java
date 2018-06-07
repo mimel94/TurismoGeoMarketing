@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
@@ -32,6 +34,7 @@ public class MapSite extends AppCompatActivity implements OnMapReadyCallback, Go
     String longitud;
     GoogleMap mapGoogle;
     MapView mapGoogleView;
+    RadioGroup payment;
 
     DatabaseReference refSite;
     private FirebaseAuth mAuth;
@@ -58,6 +61,11 @@ public class MapSite extends AppCompatActivity implements OnMapReadyCallback, Go
         Bundle placeSend = getIntent().getExtras();
         btnSave = (Button)findViewById(R.id.savePlaceBtn);
         ratingBarPlace = (RatingBar)findViewById(R.id.ratingBar);
+        payment = (RadioGroup)findViewById(R.id.radioGroup_payment);
+
+
+
+
 
         ratingBarPlace.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
@@ -83,16 +91,38 @@ public class MapSite extends AppCompatActivity implements OnMapReadyCallback, Go
             @Override
             public void onClick(View view) {
                 if(!(place.getLongitud() == null)){
-                    refSite.child(mAuth.getCurrentUser().getUid()).push().setValue(place);
-                    Toast.makeText(getApplicationContext(), "Sitio creado!", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(getApplicationContext(), PrincipalUser.class);
-                    startActivity(i);
+                    if(place.getLongitud() != null && place.getPaymentMethod() != null){
+                        refSite.child(mAuth.getCurrentUser().getUid()).push().setValue(place);
+                        Toast.makeText(getApplicationContext(), "Sitio creado!", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(getApplicationContext(), PrincipalUser.class);
+                        startActivity(i);
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Complete todos los datos!", Toast.LENGTH_SHORT).show();
+                    }
+
 
                 }else {
                     Toast.makeText(getApplicationContext(), "Debe escoger la ubicación!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_efectivo:
+                if (checked)
+                    place.setPaymentMethod("Efectivo");
+                    break;
+            case R.id.radio_tarjeta:
+                if (checked)
+                    place.setPaymentMethod("Tarjeta");
+                    break;
+        }
+        Toast.makeText(getApplicationContext(),place.getPaymentMethod(),Toast.LENGTH_SHORT).show();
     }
     @Override
     public void onMapReady(GoogleMap googleMap) {
