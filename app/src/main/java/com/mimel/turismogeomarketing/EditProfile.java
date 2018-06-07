@@ -93,7 +93,7 @@ public class EditProfile extends AppCompatActivity {
 
                 if(!(user.getProfilePhotoUrl().isEmpty())){
                     httpsReference = FirebaseStorage.getInstance().getReferenceFromUrl(user.getProfilePhotoUrl());
-                    Glide.with(EditProfile.this)
+                    Glide.with(getApplicationContext())
                             .using(new FirebaseImageLoader())
                             .load(httpsReference)
                             .into(uploadPhoto);

@@ -29,6 +29,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.mimel.turismogeomarketing.modelos.UserData;
 import com.google.firebase.storage.StorageReference;
 
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -91,7 +93,7 @@ public class ProfileFragment extends Fragment {
                 }
                 if(!(user.getProfilePhotoUrl().isEmpty())){
                     httpsReference = FirebaseStorage.getInstance().getReferenceFromUrl(user.getProfilePhotoUrl());
-                    Glide.with(getActivity())
+                    Glide.with(getApplicationContext())
                             .using(new FirebaseImageLoader())
                             .load(httpsReference)
                             .into(profilePhoto);
