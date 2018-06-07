@@ -104,7 +104,15 @@ public class PrincipalUser extends AppCompatActivity
             Intent intent = new Intent(this, PublishSite.class);
             startActivity(intent);
 
-        } else if (id == R.id.tipical_food) {
+        } else if (id == R.id.list_sites) {
+
+            System.out.println("entra a fragment");
+            ListarSitiosFragment listarSitiosFragment = new ListarSitiosFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, listarSitiosFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
 
         }
 

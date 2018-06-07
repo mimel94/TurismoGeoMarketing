@@ -23,7 +23,9 @@ public class ListarSitiosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_listar_sitios, container, false);
+        final View rootview= inflater.inflate(R.layout.fragment_listar_sitios, container, false);
+
+        return rootview;
     }
 
 }

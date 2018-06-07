@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="10sp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgSite"
+            android:layout_width="100sp"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="10sp">
+            <TextView
+                android:id="@+id/txtNombreSite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:layout_marginBottom="3sp"/>
+            <TextView
+                android:id="@+id/txtLugarSite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lugar"
+                android:layout_marginBottom="3sp"/>
+            <TextView
+                android:id="@+id/txtPayMethodSite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Metodo Pago"
+                android:layout_marginBottom="3sp"/>
+
+
+
+            <RatingBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:id="@+id/starsSite"
+                android:rating="3.0"
+                android:clickable="false"
+                android:layout_marginBottom="3sp"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/txtDescriptionSite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DEscripcion"
+        android:layout_marginBottom="3sp"
+        android:layout_marginTop="3sp"/>
+
+
+
 
 </LinearLayout>

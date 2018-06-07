@@ -11,11 +11,12 @@
         <item
             android:id="@+id/near_places"
             android:icon="@drawable/ic_map_black"
-            android:title="Lugares" />
+            android:title="Publicar sitio" />
         <item
-            android:id="@+id/tipical_food"
-            android:icon="@drawable/ic_restaurant"
-            android:title="Gastronomia Tipica" />
+            android:id="@+id/list_sites"
+            android:icon="@drawable/ic_map_black"
+            android:title="Listar sitios" />
+
     </group>
 <!--
     <item android:title="Communicate">
