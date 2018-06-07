@@ -113,10 +113,12 @@ public class EditProfile extends AppCompatActivity {
                 user.setNombre(mAuth.getCurrentUser().getDisplayName());
                 user.setCity(city.getText().toString().trim());
                 user.setDescription(description.getText().toString().trim());
-                if(!descargarFoto.toString().isEmpty()){
-                    user.setProfilePhotoUrl(descargarFoto.toString());
+                if(descargarFoto != null){
+                    if(!(descargarFoto.toString().isEmpty())  ){
+                        user.setProfilePhotoUrl(descargarFoto.toString());
+                    }
                 }
-                user.setProfilePhotoUrl(descargarFoto.toString());
+                //user.setProfilePhotoUrl(descargarFoto.toString());
                 Toast.makeText(EditProfile.this, ""+mAuth.getCurrentUser().getDisplayName(), Toast.LENGTH_SHORT).show();
 
                 refUser.child(mAuth.getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -127,8 +129,8 @@ public class EditProfile extends AppCompatActivity {
                         }
                     }
                 });
-                startActivity(new Intent(EditProfile.this, PrincipalUser.class));
-                finish();
+                //startActivity(new Intent(EditProfile.this, PrincipalUser.class));
+                //finish();
 
             }
         });
