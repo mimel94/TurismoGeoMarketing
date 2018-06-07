@@ -16,23 +16,11 @@
                             <entry key="launcherLegacy">
                               <value>
                                 <PersistentState>
-                                  <option name="children">
-                                    <map>
-                                      <entry key="clipartAsset">
-                                        <value>
-                                          <PersistentState>
-                                            <option name="values">
-                                              <map>
-                                                <entry key="url" value="jar:file:/home/mimel/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_perm_identity_black_24dp.xml" />
-                                              </map>
-                                            </option>
-                                          </PersistentState>
-                                        </value>
-                                      </entry>
-                                    </map>
-                                  </option>
                                   <option name="values">
                                     <map>
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="iconShape" value="NONE" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/WhatsApp Image 2018-05-29 at 12.38.57 PM.jpeg" />
                                       <entry key="outputName" value="profile" />
                                     </map>
                                   </option>
