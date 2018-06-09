@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TurismoGeoMarketing</string>
+    <string name="app_name">HUILAPP TOUR</string>
 
 
     <string name="facebook_app_id">233152057244871</string>
@@ -35,7 +35,7 @@
     <string name="description">Breve descripción.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment"></string>
     <string name="lugares">LUGARES</string>
 
 </resources>

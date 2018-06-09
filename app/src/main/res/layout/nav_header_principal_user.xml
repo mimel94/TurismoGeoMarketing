@@ -14,8 +14,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="126dp"
-        android:layout_height="88dp"
+        android:layout_width="200sp"
+        android:layout_height="120sp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         app:srcCompat="@mipmap/profile" />
 
@@ -23,7 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="TURHUILA"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:text="HUILAPP TOUR"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        />
 
 </LinearLayout>

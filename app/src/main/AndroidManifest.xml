@@ -10,33 +10,32 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <meta-data
         android:name="com.google.android.gms.version"
         android:value="@integer/google_play_services_version" />
 
-
     <application
         android:name=".GeoMarketingApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@mipmap/profile"
+        android:label="HUILAPP TOUR"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key"/>
+            android:value="@string/google_maps_key" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login">
+            android:label="HUILAPP TOUR">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,11 +44,12 @@
         </activity>
         <activity
             android:name=".PrincipalUser"
-            android:label="@string/title_activity_principal_user"
+            android:label="Bienvenido"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EditProfile" />
         <activity android:name=".PublishSite" />
-        <activity android:name=".MapSite"></activity>
+        <activity android:name=".MapSite" />
+        <activity android:name=".SIteActivity"></activity>
     </application>
 
 </manifest>

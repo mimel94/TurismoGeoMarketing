@@ -6,17 +6,42 @@
     tools:context="com.mimel.turismogeomarketing.MainFragment">
 
 
-    <SearchView
-        android:id="@+id/principalSearch"
-        android:layout_width="368dp"
-        android:layout_height="47dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+    <TextView
+        android:id="@+id/editText"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:editable="false"
+        android:ems="10"
+        android:gravity="top|center_horizontal"
+        android:inputType="textMultiLine"
+        android:text="HUILAPP TOUR es una herramienta que permitirá a los usuarios poder compartir sitios de interes turisticos del Huila, teniendo en cuenta algunos factores como la ciudad, el metodo pago y una calificacion de 1 a 5 estrellas, como una estrategia de GeoMarketing. \n\n Autores intelectuales:\n\nJENNIFER RAMIREZ\nJHON FREDY PORTILLA"
+        android:textAlignment="gravity"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="278dp"
+        android:layout_height="160dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:src="@mipmap/profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
